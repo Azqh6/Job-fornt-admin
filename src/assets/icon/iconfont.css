@@ -13,11 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-homefill:before {
+.icon-home:before {
   content: "\e6bb";
 }
 
-.icon-phone:before {
+.icon-app:before {
   content: "\e63b";
 }
 
@@ -37,7 +37,7 @@
   content: "\e608";
 }
 
-.icon-gengduoneirong:before {
+.icon-content:before {
   content: "\e685";
 }
 
@@ -85,7 +85,7 @@
   content: "\e69c";
 }
 
-.icon-settings-fill:before {
+.icon-settings:before {
   content: "\e840";
 }
 

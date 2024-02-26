@@ -59,6 +59,9 @@ const api={
     checkCode:"/api/checkCode",
     login:"/login"
 }
+onMounted(()=>{
+    init()
+})
 const init=()=>{
     nextTick(()=>{
         formDataRef.value.resetFields();
@@ -96,7 +99,6 @@ const doSubmit = () => {
         if(params.password !== cookiePassword){
             params.password=md5(params.password)
         }
-
         let result=await proxy.Request({
             url:api.login,
             params,
