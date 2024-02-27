@@ -28,7 +28,7 @@
             </template>
         </el-input>
     </el-form-item>
-    <el-form-item label="再次输入密码" prop="rePassword">
+    <el-form-item label="输入密码" prop="rePassword">
         <el-input
             type="password"
             clearable

@@ -52,6 +52,7 @@
                     </el-tab-pane>
                 </el-tabs>
             </div>
+            <router-view></router-view>
         </div>
     </div>
     <updatePwd ref="updatePwdRef"></updatePwd>
