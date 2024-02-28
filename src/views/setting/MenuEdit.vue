@@ -102,7 +102,6 @@ const rules = {
       message:'请输入排序号'
     },
     {
-      validator:proxy.Verify.number,
       trigger:'blur',
       message:'请输入正确的排序号'
     }
@@ -114,7 +113,7 @@ const dialogConfig = ref({
   title: "标题",
   buttons: [
    {
-    type: "danger",
+    type: "primary",
     text: "确定",
     click: (e) => {
       submitForm();

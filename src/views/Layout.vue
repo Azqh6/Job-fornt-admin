@@ -30,6 +30,7 @@
                 <div
                  :class="['sub-menu',currentSubMenu.menuUrl == sub.menuUrl ? 'active':'']"
                  v-for="sub in currentPmenu.children"
+                 @click="jump(sub)"
                 >
                     {{ sub.menuName }}
                 </div>

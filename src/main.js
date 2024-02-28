@@ -17,6 +17,7 @@ import Verify from './utils/Verify'
 
 //全局组件
 import Dialog from './components/Dialog.vue'
+import Table from './components/Table.vue'
 
 const app = createApp(App)
 
@@ -28,6 +29,7 @@ app.config.globalProperties.Confirm=Confirm
 app.config.globalProperties.Verify=Verify
 
 app.component('Dialog',Dialog)
+app.component('Table',Table)
 
 app.use(router)
 app.use(ElementPlus)
