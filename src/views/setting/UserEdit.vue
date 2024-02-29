@@ -16,7 +16,7 @@
         <el-form-item label="用户名" prop="userName">
             <el-input
                :maxLength="20"
-               v-model="formData.userId"
+               v-model="formData.userName"
             >
             </el-input>
         </el-form-item>
@@ -29,30 +29,30 @@
         </el-form-item>
         <template v-if="!formData.userId">
             <el-form-item label="密码" prop="password">
-            <el-input
+                <el-input
+                    type="password"
+                    show-password
+                    clearable
+                :maxLength="20"
+                v-model="formData.password"
+                >
+                </el-input>
+            </el-form-item>
+            <el-form-item label="重复密码" prop="rePassword">
+                <el-input
                 type="password"
-                show-password
-                clearable
-               :maxLength="20"
-               v-model="formData.phone"
-            >
-            </el-input>
-        </el-form-item>
-        <el-form-item label="重复密码" prop="rePassword">
-            <el-input
-            type="password"
-                show-password
-                clearable
-               :maxLength="20"
-               v-model="formData.rePassword"
-            >
-            </el-input>
-        </el-form-item>  
+                    show-password
+                    clearable
+                :maxLength="20"
+                v-model="formData.rePassword"
+                >
+                </el-input>
+            </el-form-item> 
         </template>
         <el-form-item label="职位" prop="position">
             <el-input
                :maxLength="20"
-               v-model="formData.rePassword"
+               v-model="formData.position"
             >
             </el-input>
         </el-form-item>  
@@ -78,7 +78,8 @@ import { ref, reactive, getCurrentInstance, nextTick } from "vue"
 const { proxy } = getCurrentInstance();
 const api={
     saveRole:'/settings/saveRole',
-    loadAllRoles:'/settings/loadAllRoles'
+    loadAllRoles:'/settings/loadAllRoles',
+    saveAccount:'/settings/saveAccount'
 }
 //获取角色
 const roleList = ref([]);
@@ -148,15 +149,8 @@ const submitForm=async()=>{
         }
         let params={}
         Object.assign(params,formData.value)
-        if(params.roleId){
-            params.menuIds=null
-        }else{
-            params.menuIds=params.menuIds.join(',')
-            let halfMenuIdArray=menuTreeRef.value.getHalfCheckedKeys() || []
-            params.halfMenuIds=halfMenuIdArray.join(',')
-        }
         let result=await proxy.Request({
-            url:api.saveRole,
+            url:api.saveAccount,
             params
         })
         if(!result){

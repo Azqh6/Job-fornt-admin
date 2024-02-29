@@ -55,25 +55,31 @@
               </div>
             </template>
             <template #slotOperation="{index,row}">
-              <div class="row-op-panel">
+              <div 
+                class="row-op-panel"
+                v-if="!(userInfo.superAdmin && userInfo.userId==row.userId)"
+              >
                 <a
                   class="a-link"
                   href="javascript:void(0);"
-                  @click="showEdit(row)"      
+                  @click="showEdit(row)"
+                  v-has="proxy.PermissionCode.account.edit"    
                 >
                   修改
                 </a>
                 <a
                   class="a-link"
                   href="javascript:void(0);"
-                  @click="delRole(row)"      
+                  @click="updatePassword(row)" 
+                  v-has="proxy.PermissionCode.account.updatePwd"    
                 >
                   修改密码
                 </a>
                 <a
                   class="a-link"
                   href="javascript:void(0);"
-                  @click.prevent="changeAccountStatus(row)"      
+                  @click.prevent="changeAccountStatus(row)"
+                  v-has="proxy.PermissionCode.account.updateStatus"      
                 >
                  {{ row.status == 0 ? '启用' : '禁用' }}
                 </a>
@@ -81,6 +87,7 @@
                   class="a-link"
                   href="javascript:void(0);"
                   @click.prevent="delAccount(row)"
+                  v-has="proxy.PermissionCode.account.del"
                 >
                   删除
                 </a>
@@ -93,11 +100,16 @@
       @reload="loadDataList"
     >
     </UserEdit>
+    <PasswordEdit
+      ref="passwordEditRef"
+    >
+    </PasswordEdit>
   </div>
 </template>
 
 <script setup>
 import UserEdit from "./UserEdit.vue";
+import PasswordEdit from "./PasswordEdit.vue";
 import { ref, reactive, getCurrentInstance, nextTick } from "vue"
 const { proxy } = getCurrentInstance();
 const api={
@@ -105,6 +117,7 @@ const api={
   delAccount:'/settings/delAccount',
   updateStatus:'/settings/updateStatus'
 }
+const userInfo=JSON.parse(sessionStorage.getItem("userInfo") || {menuList:[]})
 //搜索
 const searchForm=ref({})
 const tableInfoRef=ref()
@@ -170,7 +183,7 @@ const delAccount=(data)=>{
       let result=await proxy.Request({
         url:api.delAccount,
         params:{
-          roleId:data.userId
+          userId:data.userId
         }
       })
       if(!result){
@@ -203,6 +216,11 @@ const changeAccountStatus=(data)=>{
 const userEditRef=ref()
 const showEdit=(data={})=>{
   userEditRef.value.showEdit(Object.assign({},data))
+}
+//修改密码
+const passwordEditRef=ref()
+const updatePassword=(data={})=>{
+  passwordEditRef.value.showEdit(Object.assign({},data))
 }
 </script>
 

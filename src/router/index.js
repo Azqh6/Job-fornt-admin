@@ -25,7 +25,12 @@ const router = createRouter({
         {
           path:'/content/category',
           name:'分类管理',
-          component:()=> import('../views/content/Category.vue')
+          component:()=> import('../views/content/CategoryList.vue')
+        },
+        {
+          path:'/content/question',
+          name:'八股文管理',
+          component:()=>import('../views/content/QuestionList.vue')
         },
         {
           path:'/setting/menu',
