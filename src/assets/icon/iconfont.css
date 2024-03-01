@@ -49,11 +49,11 @@
   content: "\e945";
 }
 
-.icon-nextcopy:before {
+.icon-pre:before {
   content: "\e600";
 }
 
-.icon-nextcopy-copy:before {
+.icon-next:before {
   content: "\e601";
 }
 
@@ -65,7 +65,7 @@
   content: "\e700";
 }
 
-.icon-guanbi:before {
+.icon-close:before {
   content: "\e617";
 }
 

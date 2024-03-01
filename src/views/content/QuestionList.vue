@@ -174,18 +174,18 @@
 
     <QuestionEdit ref="questionEditRef" @reload="loadDataList"></QuestionEdit>
 
-    <!-- <ImportData
+    <ImportData
       ref="importDataRef"
       :type="0"
       @reload="loadDataList"
-    ></ImportData> -->
+    ></ImportData>
 
-    <!-- <ShowDetail ref="showDetailRef" :showType="1"></ShowDetail> -->
+    <ShowDetail ref="showDetailRef" :showType="1"></ShowDetail>
   </div>
 </template>
 
 <script setup>
-// import ShowDetail from "@/components/content/ShowDetail.vue";
+import ShowDetail from "@/components/content/ShowDetail.vue";
 import QuestionEdit from "./QuestionEdit.vue";
 import { getCurrentInstance, nextTick, ref } from "vue";
 const { proxy } = getCurrentInstance();
