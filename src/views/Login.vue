@@ -26,7 +26,7 @@
                     </el-form-item>
                     <el-form-item prop="checkCode">
                         <div class="check-code-panel">
-                            <el-input placeholder="请输入验证码" clearable v-model="formData.checkCode">
+                            <el-input placeholder="请输入验证码" clearable v-model="formData.checkCode" @keydown.enter="doSubmit">
                                 <template #prefix>
                                     <span class="iconfont icon-yanzhengyanzhengma"></span>
                                 </template>

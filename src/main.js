@@ -21,7 +21,7 @@ import Table from './components/Table.vue'
 import Cover from './components/Cover.vue'
 import CoverUpload from './components/CoverUpload.vue'
 import CategorySelect from './components/content/CategorySelect.vue'
-import SuneEditor from './components/Suneditor.vue'
+import SunEditor from './components/Suneditor.vue'
 import Badge from './components/Badge.vue'
 import ImportData from './components/content/ImportData.vue'
 import Window from './components/Window.vue'
@@ -57,7 +57,7 @@ app.component('Table',Table)
 app.component('Cover',Cover)
 app.component('CoverUpload',CoverUpload)
 app.component('CategorySelect',CategorySelect)
-app.component('SuneEditor',SuneEditor)
+app.component('SunEditor',SunEditor)
 app.component('Badge',Badge)
 app.component('ImportData',ImportData)
 app.component('Window',Window)

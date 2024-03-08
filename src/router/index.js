@@ -5,7 +5,17 @@ const router = createRouter({
   routes: [
     {
       path:"/test",
-      component:()=>import('../views/test.vue')
+      component:()=>import('../views/test.vue'),
+      children:[
+        {
+          path:"/test2",
+          component:()=>import('../views/test2.vue')
+        },
+        {
+          path:'/test3',
+          component:()=>import('../views/test3.vue')
+        }
+      ]
     },
     {
       path: '/login',
@@ -33,6 +43,41 @@ const router = createRouter({
           component:()=>import('../views/content/QuestionList.vue')
         },
         {
+          path:'/content/exam',
+          name:'题库管理',
+          component:()=>import('../views/content/ExamQuestionList.vue')
+        },
+        {
+          path:'/content/share',
+          name:'经验分享',
+          component:()=>import('../views/content/ShareList.vue')
+        },
+        {
+          path:'/app/userDevice',
+          name:'设备管理',
+          component:()=>import('../views/app/UserDeviceList.vue')
+        },
+        {
+          path:'/app/user',
+          name:'用户管理',
+          component:()=>import('../views/app/UserList.vue')
+        },
+        {
+          path:'/app/carouselList',
+          name:'轮播图',
+          component:()=>import('../views/app/CarouselList.vue')
+        },
+        {
+          path:'/app/feedbackList',
+          name:'问题反馈',
+          component:()=>import('../views/app/FeedbackList.vue')
+        },
+        {
+          path:'/app/updateList',
+          name:'应用更新',
+          component:()=>import('../views/app/UpdateList.vue')
+        },
+        {
           path:'/setting/menu',
           name:'菜单管理',
           component:()=>import('../views/setting/MenuList.vue')
@@ -44,7 +89,7 @@ const router = createRouter({
         },
         {
           path:'/setting/user',
-          name:"用户管理",
+          name:"系统管理",
           component:()=>import('../views/setting/UserList.vue')
         }
       ]

@@ -37,12 +37,12 @@
       <el-row :gutter="10">
         <el-col :span="12">
           <el-form-item label="问题" prop="question">
-            <SuneEditor v-model="formData.question"></SuneEditor>
+            <SunEditor v-model="formData.question"></SunEditor>
           </el-form-item>
         </el-col>
         <el-col :span="12">
           <el-form-item label="答案分析" prop="answerAnalysis">
-            <SuneEditor v-model="formData.answerAnalysis"></SuneEditor>
+            <SunEditor v-model="formData.answerAnalysis"></SunEditor>
           </el-form-item>
         </el-col>
       </el-row>

@@ -89,10 +89,10 @@ const props = defineProps({
   },
   options: {
     type: Object,
-    default: {
-      extHeight: 0,
-      showIndex: false,
-    },
+    default: {},
+  },
+  extHeight: {
+    default: 70,
   },
   columns: Array,
   fetch: Function, // 获取数据的函数
@@ -100,16 +100,16 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  selected:Function,
+  selected: Function,
 });
 
-//顶部 60 , 内容区域距离顶部 20， 内容上下内间距 15*2  分页区域高度 46
-const topHeight = 60 + 39 + 20 + 10 + 42 + 20 + 2
+//顶部 60 ,导航tab 39 内容padding 20，内容区域距离顶部 10，分页区域高度 42  内容区域el-card padding 10*2
+const topHeight = 60 + 39 + 20 + 10 + 42 + 20 + 2;
 
 const tableHeight = ref(
   props.options.tableHeight
     ? props.options.tableHeight
-    : window.innerHeight - topHeight - props.options.extHeight
+    : window.innerHeight - topHeight - props.extHeight
 );
 
 //初始化
@@ -158,12 +158,12 @@ const handlePageNoChange = (pageNo) => {
   props.fetch();
 };
 
-//复选框事件
-const selectedHandler=(row,index)=>{
-  if(props.selected){
-    return props.selected(row,index)
+//复选事件
+const selectedHandler = (row, index) => {
+  if (props.selected) {
+    return props.selected(row, index);
   }
-}
+};
 </script>
 <style lang="scss">
 .pagination {
